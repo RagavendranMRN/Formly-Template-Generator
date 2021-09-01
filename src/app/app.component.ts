@@ -40,7 +40,7 @@ export class AppComponent {
       .get<any>(`assets/json-schema/${type}.json`)
       .pipe(
         tap(jsonMetaData => {
-          jsonMetaData.entities.map(jsonEntity => {
+          jsonMetaData.fields.map(jsonEntity => {
             let TemplateOptions = {};
             this.loadTemplateOptions(
               'translation',

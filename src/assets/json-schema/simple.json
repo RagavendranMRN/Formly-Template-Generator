@@ -1,6 +1,6 @@
 {
   "entity_name": "QualityNotificationDetail",
-  "entities": [
+  "fields": [
     {
       "fileldname": "status",
       "Excel.Mandatory": true,
