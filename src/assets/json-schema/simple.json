@@ -1,0 +1,78 @@
+{
+  "entity_name": "QualityNotificationDetail",
+  "entities": [
+    {
+      "fileldname": "status",
+      "Excel.Mandatory": true,
+      "fieldKey": "qn.detailInformation.status",
+      "translation": {
+        "notSupported": true,
+        "devComment": "Dev comment: QN_STATUS",
+        "translationKey": "QN_STATUS",
+        "description": "Status"
+      },
+      "name": "qn_detailInformation_status_1",
+      "options": [
+        {
+          "translation": {
+            "translationKey": "QN_STATUS_NEW"
+          },
+          "value": "new",
+          "label":"new"
+        },
+        {
+          "translation": {
+            "translationKey": "QN_STATUS_IN_PROCESS"
+          },
+          "value": "in-process"
+        },
+        {
+          "translation": {
+            "translationKey": "QN_STATUS_OBSOLETED"
+          },
+          "value": "obsoleted",
+          "nonSelectable": true
+        },
+        {
+          "translation": {
+            "translationKey": "QN_STATUS_CANCELED"
+          },
+          "value": "canceled",
+          "nonSelectable": true
+        },
+        {
+          "translation": {
+            "translationKey": "QN_STATUS_COMPLETED"
+          },
+          "value": "completed"
+        },
+        {
+          "translation": {
+            "translationKey": "QN_STATUS_CLOSED"
+          },
+          "value": "closed",
+          "nonSelectable": true
+        }
+      ],
+      "id": "qn_detailInformation_status_1",
+      "type": "select"
+    },
+    {
+      "fileldname": "requestId",
+      "uiDisplay": true,
+      "document.type": "QualityNotificationDocument",
+      "fieldKey": "qn.detailInformation.requestID",
+      "ANUI.Visible": true,
+      "translation": {
+        "devComment": "Dev comment: QN_NUMBER",
+        "translationKey": "QN_NUMBER",
+        "description": "Supplier deviation no."
+      },
+      "name": "qn_detailInformation_requestID_1",
+      "readOnly": true,
+      "id": "qn_detailInformation_requestID_1",
+      "type": "input"
+
+    }
+  ]
+}
