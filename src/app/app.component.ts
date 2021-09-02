@@ -31,6 +31,7 @@ export class AppComponent {
   }
 
   loadTemplateOptions(options: any, optionsValues: any, templateOptions: any) {
+    console.log(optionsValues);
     if (optionsValues) {
       templateOptions[options] = optionsValues;
     }
