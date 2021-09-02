@@ -35,6 +35,13 @@ export class AppComponent {
       templateOptions[options] = optionsValues;
     }
   }
+
+  loadExpressionProperties(property: any, field: any, expressionProperty: any) {
+    if (field) {
+      expressionProperty['templateOptions.' + property] = field;
+    }
+  }
+
   loadExample(type: string) {
     this.http
       .get<any>(`assets/json-schema/${type}.json`)
@@ -43,6 +50,7 @@ export class AppComponent {
           jsonMetaData.entities.map(entity => {
             entity.fields.map(jsonEntity => {
               let TemplateOptions = {};
+              let ExpressionProperty = {};
               this.loadTemplateOptions(
                 'translation',
                 jsonEntity.translation,
@@ -53,13 +61,19 @@ export class AppComponent {
                 jsonEntity.options,
                 TemplateOptions
               );
+              this.loadExpressionProperties(
+                'readOnly',
+                jsonEntity.readOnly,
+                ExpressionProperty
+              );
 
               let frmStruct = {
                 name: jsonEntity.name,
                 type: jsonEntity.type,
                 id: jsonEntity.id,
                 key: jsonEntity.key,
-                templateOptions: TemplateOptions
+                templateOptions: TemplateOptions,
+                expressionProperties: ExpressionProperty
               };
 
               this.fieldList.push(frmStruct);
