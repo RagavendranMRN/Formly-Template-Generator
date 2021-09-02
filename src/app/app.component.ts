@@ -72,7 +72,7 @@ export class AppComponent {
                 type: jsonEntity.type,
                 id: jsonEntity.id,
                 key: jsonEntity.key,
-                templateOptions: TemplateOptions,
+                templateOptions: { ...TemplateOptions, label: jsonEntity.name },
                 expressionProperties: ExpressionProperty
               };
 

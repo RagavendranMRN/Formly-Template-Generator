@@ -16,7 +16,33 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     HttpClientModule,
     MatMenuModule,
     NgxJsonViewerModule,
-    FormlyModule.forRoot({})
+    FormlyModule.forRoot({
+      extras: { resetFieldOnHide: true },
+
+      types: [
+        { name: 'string', extends: 'input' },
+        {
+          name: 'number',
+          extends: 'input',
+          defaultOptions: {
+            templateOptions: {
+              type: 'number'
+            }
+          }
+        },
+        {
+          name: 'integer',
+          extends: 'input',
+          defaultOptions: {
+            templateOptions: {
+              type: 'number'
+            }
+          }
+        },
+        { name: 'boolean', extends: 'checkbox' },
+        { name: 'enum', extends: 'select' }
+      ]
+    })
   ],
   bootstrap: [AppComponent],
   declarations: [AppComponent]

@@ -1,93 +1,156 @@
 {
   "documentType": "qualityNotification",
-  "version": "1.0.0",
-  "actions": [
-    {
-      "name": "edit"
-    },
-    {
-      "name": "cancel"
-    }
-  ],
   "entities": [
     {
-      "name": "Quality Notification Detail",
+      "name": "an.QualityNotificationAdditionalInfo",
       "fields": [
         {
-          "name": "Status",
-          "id": "qn_detailInformation_status_1",
-          "key": "qn.detailInformation.status",
-          "type": "select",
-          "isExtrinsic": false,
-          "mandatory": true,
-          "editable": true,
-          "translation": {
-            "notSupported": true,
-            "devComment": "Dev comment: QN_STATUS",
-            "translationKey": "QN_STATUS",
-            "description": "Status"
-          },
-          "options": [
-            {
-              "translation": {
-                "translationKey": "QN_STATUS_NEW"
-              },
-              "value": "new",
-              "label": "New"
-            },
-            {
-              "translation": {
-                "translationKey": "QN_STATUS_IN_PROCESS"
-              },
-              "value": "in-process",
-              "label": "In Process"
-            },
-            {
-              "translation": {
-                "translationKey": "QN_STATUS_OBSOLETED"
-              },
-              "value": "obsoleted",
-              "label": "Obsoleted",
-              "nonSelectable": true
-            },
-            {
-              "translation": {
-                "translationKey": "QN_STATUS_CANCELED"
-              },
-              "value": "canceled",
-              "label": "Canceled",
-              "nonSelectable": true
-            },
-            {
-              "translation": {
-                "translationKey": "QN_STATUS_COMPLETED"
-              },
-              "value": "completed",
-              "label": "Completed"
-            },
-            {
-              "translation": {
-                "translationKey": "QN_STATUS_CLOSED"
-              },
-              "value": "closed",
-              "label": "Closed",
-              "nonSelectable": true
-            }
-          ]
+          "fieldKey": "qn.detailInformation.batch.buyerBatchID",
+          "defaultValue": "CB Req by rule q7",
+          "name": "qn_detailInformation_batch_buyerBatchID_1",
+          "inlineHelp.label": "EN CB Req by rule q7",
+          "translation.devComment": "Dev comment: QN_CUSTOMER_BATCH",
+          "translation.description": "Customer batch",
+          "label": "EN CB Req by rule q7",
+          "id": "qn_detailInformation_batch_buyerBatchID_1",
+          "type": "input",
+          "hideExpression": "false",
+          "inlineHelp.placement": "bottom",
+          "translation.translationKey": "QN_CUSTOMER_BATCH"
+        }
+      ]
+    },
+    {
+      "name": "an.ReturnQuantity",
+      "fields": [
+        {
+          "fieldKey": "quantity",
+          "name": "qn_detailInformation_returnQuantity_quantity_1",
+          "id": "qn_detailInformation_returnQuantity_quantity_1",
+          "type": "integer",
+          "translation.translationKey": "QN_RETURN_QTY"
         },
         {
-          "name": "RequestId",
-          "id": "qn_detailInformation_requestID_1",
-          "key": "qn.detailInformation.requestID",
-          "isExtrinsic": false,
-          "mandatory": true,
-          "readOnly": true,
+          "fieldKey": "unitOfMeasure",
+          "name": "qn_detailInformation_returnQuantity_unitOfMeasure_1",
+          "translation.devComment": "Dev comment: QN_UNIT",
+          "translation.description": "Unit",
+          "id": "qn_detailInformation_returnQuantity_unitOfMeasure_1",
           "type": "input",
-          "translation": {
-            "devComment": "Dev comment: QN_NUMBER",
-            "translationKey": "QN_NUMBER",
-            "description": "Supplier deviation no."
-          }
+          "translation.translationKey": "QN_UNIT"
+        }
+      ]
+    },
+    {
+      "name": "an.ComplainQuantity",
+      "fields": [
+        {
+          "fieldKey": "quantity",
+          "name": "qn_detailInformation_complainQuantity_quantity_1",
+          "id": "qn_detailInformation_complainQuantity_quantity_1",
+          "type": "integer",
+          "translation.translationKey": "QN_COMPLAINT_QTY"
+        },
+        {
+          "fieldKey": "unitOfMeasure",
+          "name": "qn_detailInformation_complainQuantity_unitOfMeasure_1",
+          "translation.devComment": "Dev comment: QN_UNIT",
+          "translation.description": "Unit",
+          "id": "qn_detailInformation_complainQuantity_unitOfMeasure_1",
+          "type": "input",
+          "translation.translationKey": "QN_UNIT"
+        }
+      ]
+    },
+    {
+      "name": "an.QualityNotificationDetail",
+      "fields": [
+        {
+          "document.type": "QualityNotificationDocument",
+          "an.excel.hidden": "false",
+          "fieldKey": "qn.detailInformation.requestID",
+          "name": "qn_detailInformation_requestID_1",
+          "translation.devComment": "Dev comment: QN_NUMBER",
+          "translation.description": "Supplier deviation no.",
+          "an.excel.label.defaultValue": "Request ID",
+          "id": "qn_detailInformation_requestID_1",
+          "type": "input",
+          "an.excel.order": "1",
+          "translation.translationKey": "QN_NUMBER"
+        },
+        {
+          "translation.notSupported": "true",
+          "an.excel.hidden": "false",
+          "fieldKey": "qn.detailInformation.status",
+          "name": "qn_detailInformation_status_1",
+          "options": "[{value=new, translation={translationKey=QN_STATUS_NEW}}, {value=in-process, translation={translationKey=QN_STATUS_IN_PROCESS}}, {value=obsoleted, translation={translationKey=QN_STATUS_OBSOLETED}, nonSelectable=true}, {value=canceled, translation={translationKey=QN_STATUS_CANCELED}, nonSelectable=true}, {value=completed, translation={translationKey=QN_STATUS_COMPLETED}}, {value=closed, translation={translationKey=QN_STATUS_CLOSED}, nonSelectable=true}]",
+          "translation.devComment": "Dev comment: QN_STATUS",
+          "translation.description": "Status",
+          "an.excel.label.defaultValue": "Status",
+          "id": "qn_detailInformation_status_1",
+          "an.excel.order": "5",
+          "translation.translationKey": "QN_STATUS"
+        },
+        {
+          "fieldKey": "data.detailInformation.discoveryDate",
+          "name": "data_detailInformation_discoveryDate_1",
+          "translation.devComment": "Dev comment: QN_DISCOVERY_DATE",
+          "translation.description": "Discovery date",
+          "id": "data_detailInformation_discoveryDate_1",
+          "hideExpression": "true",
+          "translation.translationKey": "QN_DISCOVERY_DATE"
+        },
+        {
+          "fieldKey": "data.detailInformation.returnDate",
+          "name": "data_detailInformation_returnDate_1",
+          "translation.devComment": "Dev comment: QN_RETURN_DATE",
+          "translation.description": "Return date",
+          "id": "data_detailInformation_returnDate_1",
+          "translation.translationKey": "QN_RETURN_DATE"
+        },
+        {
+          "fieldKey": "qn.detailInformation.returnAuthorizationNumber",
+          "name": "qn_detailInformation_returnAuthorizationNumber_1",
+          "translation.devComment": "Dev comment: QN_RETURN_AUTHORIZATION_NUMBER",
+          "translation.description": "Return authorization no.",
+          "id": "qn_detailInformation_returnAuthorizationNumber_1",
+          "translation.translationKey": "QN_RETURN_AUTHORIZATION_NUMBER"
+        },
+        {
+          "translation.notSupported": "true",
+          "an.excel.hidden": "false",
+          "fieldKey": "data.detailInformation.priority",
+          "name": "data_detailInformation_priority_1",
+          "an.excel.label.defaultValue": "Priority",
+          "id": "data_detailInformation_priority_1",
+          "an.excel.order": "4",
+          "translation.translationKey": "QN_PRIORITY"
+        },
+        {
+          "fieldKey": "qn.detailInformation.complainQuantity",
+          "name": "qn_detailInformation_complainQuantity_1",
+          "id": "qn_detailInformation_complainQuantity_1",
+          "type": "integer"
+        },
+        {
+          "fieldKey": "qn.detailInformation.returnQuantity",
+          "name": "qn_detailInformation_returnQuantity_1",
+          "id": "qn_detailInformation_returnQuantity_1",
+          "type": "integer"
+        },
+        {
+          "fieldKey": "qn.detailInformation.batch.buyerBatchID",
+          "defaultValue": "CB Req by rule q7",
+          "name": "qn_detailInformation_batch_buyerBatchID_1",
+          "inlineHelp.label": "EN CB Req by rule q7",
+          "translation.devComment": "Dev comment: QN_CUSTOMER_BATCH",
+          "translation.description": "Customer batch",
+          "label": "EN CB Req by rule q7",
+          "id": "qn_detailInformation_batch_buyerBatchID_1",
+          "type": "input",
+          "hideExpression": "false",
+          "inlineHelp.placement": "bottom",
+          "translation.translationKey": "QN_CUSTOMER_BATCH"
         }
       ]
     }
