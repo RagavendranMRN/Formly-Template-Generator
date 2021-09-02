@@ -1,78 +1,95 @@
 {
-  "entity_name": "QualityNotificationDetail",
-  "fields": [
+  "documentType": "qualityNotification",
+  "version": "1.0.0",
+  "actions": [
     {
-      "fileldname": "status",
-      "Excel.Mandatory": true,
-      "fieldKey": "qn.detailInformation.status",
-      "translation": {
-        "notSupported": true,
-        "devComment": "Dev comment: QN_STATUS",
-        "translationKey": "QN_STATUS",
-        "description": "Status"
-      },
-      "name": "qn_detailInformation_status_1",
-      "options": [
-        {
-          "translation": {
-            "translationKey": "QN_STATUS_NEW"
-          },
-          "value": "new",
-          "label":"new"
-        },
-        {
-          "translation": {
-            "translationKey": "QN_STATUS_IN_PROCESS"
-          },
-          "value": "in-process"
-        },
-        {
-          "translation": {
-            "translationKey": "QN_STATUS_OBSOLETED"
-          },
-          "value": "obsoleted",
-          "nonSelectable": true
-        },
-        {
-          "translation": {
-            "translationKey": "QN_STATUS_CANCELED"
-          },
-          "value": "canceled",
-          "nonSelectable": true
-        },
-        {
-          "translation": {
-            "translationKey": "QN_STATUS_COMPLETED"
-          },
-          "value": "completed"
-        },
-        {
-          "translation": {
-            "translationKey": "QN_STATUS_CLOSED"
-          },
-          "value": "closed",
-          "nonSelectable": true
-        }
-      ],
-      "id": "qn_detailInformation_status_1",
-      "type": "select"
+      "name": "edit"
     },
     {
-      "fileldname": "requestId",
-      "uiDisplay": true,
-      "document.type": "QualityNotificationDocument",
-      "fieldKey": "qn.detailInformation.requestID",
-      "ANUI.Visible": true,
-      "translation": {
-        "devComment": "Dev comment: QN_NUMBER",
-        "translationKey": "QN_NUMBER",
-        "description": "Supplier deviation no."
-      },
-      "name": "qn_detailInformation_requestID_1",
-      "readOnly": true,
-      "id": "qn_detailInformation_requestID_1",
-      "type": "input"
-
+      "name": "cancel"
+    }
+  ],
+  "entities": [
+    {
+      "name": "Quality Notification Detail",
+      "fields": [
+        {
+          "name": "Status",
+          "id": "qn_detailInformation_status_1",
+          "key": "qn.detailInformation.status",
+          "type": "select",
+          "isExtrinsic": false,
+          "mandatory": true,
+          "editable": true,
+          "translation": {
+            "notSupported": true,
+            "devComment": "Dev comment: QN_STATUS",
+            "translationKey": "QN_STATUS",
+            "description": "Status"
+          },
+          "options": [
+            {
+              "translation": {
+                "translationKey": "QN_STATUS_NEW"
+              },
+              "value": "new",
+              "label": "New"
+            },
+            {
+              "translation": {
+                "translationKey": "QN_STATUS_IN_PROCESS"
+              },
+              "value": "in-process",
+              "label": "In Process"
+            },
+            {
+              "translation": {
+                "translationKey": "QN_STATUS_OBSOLETED"
+              },
+              "value": "obsoleted",
+              "label": "Obsoleted",
+              "nonSelectable": true
+            },
+            {
+              "translation": {
+                "translationKey": "QN_STATUS_CANCELED"
+              },
+              "value": "canceled",
+              "label": "Canceled",
+              "nonSelectable": true
+            },
+            {
+              "translation": {
+                "translationKey": "QN_STATUS_COMPLETED"
+              },
+              "value": "completed",
+              "label": "Completed"
+            },
+            {
+              "translation": {
+                "translationKey": "QN_STATUS_CLOSED"
+              },
+              "value": "closed",
+              "label": "Closed",
+              "nonSelectable": true
+            }
+          ]
+        },
+        {
+          "name": "RequestId",
+          "id": "qn_detailInformation_requestID_1",
+          "key": "qn.detailInformation.requestID",
+          "isExtrinsic": false,
+          "mandatory": true,
+          "readOnly": true,
+          "type": "input",
+          "translation": {
+            "devComment": "Dev comment: QN_NUMBER",
+            "translationKey": "QN_NUMBER",
+            "description": "Supplier deviation no."
+          }
+        }
+      ]
     }
   ]
 }

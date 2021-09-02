@@ -40,36 +40,38 @@ export class AppComponent {
       .get<any>(`assets/json-schema/${type}.json`)
       .pipe(
         tap(jsonMetaData => {
-          jsonMetaData.fields.map(jsonEntity => {
-            let TemplateOptions = {};
-            this.loadTemplateOptions(
-              'translation',
-              jsonEntity.translation,
-              TemplateOptions
-            );
-            this.loadTemplateOptions(
-              'options',
-              jsonEntity.options,
-              TemplateOptions
-            );
+          jsonMetaData.entities.map(entity => {
+            entity.fields.map(jsonEntity => {
+              let TemplateOptions = {};
+              this.loadTemplateOptions(
+                'translation',
+                jsonEntity.translation,
+                TemplateOptions
+              );
+              this.loadTemplateOptions(
+                'options',
+                jsonEntity.options,
+                TemplateOptions
+              );
 
-            let frmStruct = {
-              name: jsonEntity.name,
-              type: jsonEntity.type,
-              id: jsonEntity.id,
-              key: jsonEntity.fieldKey,
-              templateOptions: TemplateOptions
-            };
+              let frmStruct = {
+                name: jsonEntity.name,
+                type: jsonEntity.type,
+                id: jsonEntity.id,
+                key: jsonEntity.key,
+                templateOptions: TemplateOptions
+              };
 
-            this.fieldList.push(frmStruct);
+              this.fieldList.push(frmStruct);
+            });
+
+            this.form = new FormGroup({});
+            this.options = {};
+            this.fields = this.fieldList;
+            this.model = {};
+
+            console.log(this.fields);
           });
-
-          this.form = new FormGroup({});
-          this.options = {};
-          this.fields = this.fieldList;
-          this.model = {};
-
-          console.log(this.fields);
         })
       )
       .subscribe();
